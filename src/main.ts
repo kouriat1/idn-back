@@ -1,18 +1,18 @@
 import { NestFactory } from '@nestjs/core';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import * as cors from 'cors';
+import { log } from 'console';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(cors());
 
-  const config = new DocumentBuilder()
-    .setTitle('identite numérique social')
-    .setDescription('The idn API description')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  console.log(process.env.API_PORT)
 
-  await app.listen(3000);
+  await app.listen(process.env.API_PORT);
+
+
+  
+
 }
 bootstrap();
