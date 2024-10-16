@@ -44,6 +44,8 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+## database 
+$ npm run start:dev
 
 ## Test
 
