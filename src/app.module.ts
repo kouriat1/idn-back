@@ -6,13 +6,14 @@ import { AppService } from './app.service';
 import { PrismaService } from './prisma.service';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { IdentityModule } from './verification/identity.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true, 
     }),
-    UserModule,AuthModule
+    UserModule,AuthModule,IdentityModule
     
   ],
   controllers: [AppController],
