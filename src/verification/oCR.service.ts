@@ -7,7 +7,7 @@ export class OCRService {
     console.log("ocr 0");
     try {
       const result = await tesseract.recognize(buffer, 'eng');
-      console.log("ocr");
+      console.log("my text",result.data.text);
       return result.data.text;
     } catch (error) {
       console.error("Error during OCR:", error);
