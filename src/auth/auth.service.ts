@@ -44,14 +44,12 @@ export class AuthService {
       throw new UnauthorizedException('Email ou mot de passe incorrect');
     }
 
-    // Vcrypte le password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       throw new UnauthorizedException('Email ou mot de passe incorrect');
     }
 
-    //le JWT
-    const payload = { email: user.email, sub: user.id };
+    const payload = { email: user.email, sub: user.id , name:user.name};
     const token = this.jwtService.sign(payload);
 
     return {
